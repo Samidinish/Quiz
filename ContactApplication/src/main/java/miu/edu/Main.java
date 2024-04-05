@@ -4,6 +4,7 @@ import miu.edu.model.Contact;
 import miu.edu.model.UserEmail;
 import miu.edu.model.UserPhoneNumber;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -31,7 +32,9 @@ public class Main {
                 new Contact("Ali", "Gafar","BMI Services", "HR Manager", List.of(phone4), List.of(email4));
 
 
-        List<Contact> printList= List.of(contact,contact1,contact2);
+        List<Contact> printList= new java.util.ArrayList<>(List.of(contact, contact1, contact2));
+        printList.sort((a, b) -> a.getLastName().compareTo(b.getLastName()));
+
         for (Contact p:printList){
             p.printJSON();
             System.out.println("____________________________");
